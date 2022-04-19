@@ -49,4 +49,4 @@ class Utils():
                 wordSet = set(words.words())
             except LookupError:
                 download("words")
-            return (word in wordSet)
+            return ((word in wordSet) and (len(word) > 1))
