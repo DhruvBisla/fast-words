@@ -30,7 +30,7 @@ class LetterBank():
             removeList (list[str]): List containing characters to remove
         """
 
-        # Using loop to individually iterate over removeList because do not want to remove duplicates, as list comprehension would
+        # List comprehension would remove duplicates which is not desired; uses individual iteration instead
         for character in removeList:
             try:
                 self.bank.remove(character)

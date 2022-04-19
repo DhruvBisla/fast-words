@@ -1,4 +1,14 @@
+'''
+Py-Getch Package
+Source: https://github.com/joeyespo/py-getch
+Credit: Contributors of py-getch, https://github.com/joeyespo/py-getch/graphs/contributors
+'''
 from getch import getch
+'''
+Python Natural Language Toolkit
+Source: https://github.com/nltk/nltk
+Credit: Contributors of NLTK, https://github.com/nltk/nltk/graphs/contributors
+'''
 from nltk import download
 from nltk.corpus import words
 
