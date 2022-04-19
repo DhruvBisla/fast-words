@@ -3,25 +3,48 @@ from nltk import download
 from nltk.corpus import words
 
 class Utils():
+    """Class containing utility methods"""
 
     class Keyboard():
+        """Class containing keyboard specific methods"""
 
         @staticmethod
         def blockTillAnyKey() -> str:
+            """Blocks main thread till any key is pressed
+
+            Returns:
+                str: Key code for character pressed
+            """
+
             return getch()
-        @staticmethod
-        def blockTillYesNo() -> bool:
-            input : str = getch()
-            return (input == "y") or False
 
     class Text():
+        """Class containing text specific methods"""
 
         @staticmethod
         def formatListToString(rawList : list[str]) -> str:
+            """Prettifies list in string form
+
+            Args:
+                rawList (list[str]): Given list
+
+            Returns:
+                str: Formatted string
+            """
+
             return " ".join(rawList)
 
         @staticmethod
         def isEnglishWord(word : str) -> bool:
+            """Checks whether given string is an English word
+
+            Args:
+                word (str): Given string
+
+            Returns:
+                bool: Whether string is a word
+            """
+
             try:
                 wordSet = set(words.words())
             except LookupError:
