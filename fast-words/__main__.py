@@ -1,7 +1,5 @@
 import argparse
-import sys
 
-from os import path
 from . import game
 
 def main():

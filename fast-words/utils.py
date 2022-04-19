@@ -1,9 +1,11 @@
 from getch import getch
-from nltk.corpus import words
 from nltk import download
+from nltk.corpus import words
 
 class Utils():
+
     class Keyboard():
+
         @staticmethod
         def blockTillAnyKey() -> str:
             return getch()
@@ -11,10 +13,13 @@ class Utils():
         def blockTillYesNo() -> bool:
             input : str = getch()
             return (input == "y") or False
+
     class Text():
+
         @staticmethod
         def formatListToString(rawList : list[str]) -> str:
             return " ".join(rawList)
+
         @staticmethod
         def isEnglishWord(word : str) -> bool:
             try:
