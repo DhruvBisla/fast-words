@@ -5,7 +5,7 @@ Credit: Contributors of py-getch, https://github.com/joeyespo/py-getch/graphs/co
 '''
 from getch import getch
 '''
-Python Natural Language Toolkit
+Natural Language Toolkit Package
 Source: https://github.com/nltk/nltk
 Credit: Contributors of NLTK, https://github.com/nltk/nltk/graphs/contributors
 '''
