@@ -65,7 +65,7 @@ class Game():
         return (utils.Utils.Text.isEnglishWord("".join(entered)) and all(character in self.m_letterPool.bank.getBank() for character in entered))
 
     def prepNext(self, word : list[str]) -> None:
-        """_summary_
+        """Removes used characters and replaces with random from letter pool
 
         Args:
             word (list[str]): English word formed by player
