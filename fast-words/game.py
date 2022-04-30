@@ -62,7 +62,7 @@ class Game():
             bool: Whether given list of characters is an English word and uses only the characters in the word bank
         """
 
-        # Idiomatic one-liner below, but itdoes not satisfy all 3c. and 3d. requirements
+        # Idiomatic one-liner below, but it does not satisfy all 3c. and 3d. requirements
         # return (utils.Utils.Text.isEnglishWord("".join(word)) and all(character in self.m_letterPool.bank.getBank() for character in word))
         allInBank : bool = True
         if (word == self.m_letterPool.bank.getBank()):
