@@ -52,17 +52,33 @@ class Game():
         self.score += len(entered)
         return [char for char in entered]
 
-    def checkInput(self, entered : list[str]) -> bool:
+    def checkInput(self, word : list[str]) -> bool:
         """Performs a check on word validity and that the used characters were all from the word bank
 
         Args:
-            entered (list[str]): Word formed by player
+            word (list[str]): Word formed by player
 
         Returns:
             bool: Whether given list of characters is an English word and uses only the characters in the word bank
         """
 
-        return (utils.Utils.Text.isEnglishWord("".join(entered)) and all(character in self.m_letterPool.bank.getBank() for character in entered))
+        # Idiomatic one-liner below, but itdoes not satisfy all 3c. and 3d. requirements
+        # return (utils.Utils.Text.isEnglishWord("".join(word)) and all(character in self.m_letterPool.bank.getBank() for character in word))
+        allInBank : bool = True
+        if (word == self.m_letterPool.bank.getBank()):
+            pass
+        else:
+            for character in word:
+                if (not(self.m_letterPool.bank.getBank().count(character))):
+                    allInBank = False
+                    break
+        if (allInBank):
+            if (utils.Utils.Text.isEnglishWord("".join(word))):
+                return True
+            else:
+                return False
+        else:
+            return False;
 
     def prepNext(self, word : list[str]) -> None:
         """Removes used characters and replaces with random from letter pool
@@ -71,8 +87,13 @@ class Game():
             word (list[str]): English word formed by player
         """
 
+        # Emulate do-while loop behavior of loop as none exists in Python
         self.m_letterPool.bank.removeCharacters(word)
         self.m_letterPool.bank.addCharacters(self.m_letterPool.getRandom(len(word)))
+        # Ensure free 8 points not given to player by providing word bank that already forms 8 letter word
+        while (self.checkInput(self.m_letterPool.bank.getBank())):
+            self.m_letterPool.bank.removeCharacters(self.m_letterPool.bank.getBank())
+            self.m_letterPool.bank.addCharacters(self.m_letterPool.getRandom(len(word)))
 
     def play(self) -> None:
         """Puts together the main components of the game"""
