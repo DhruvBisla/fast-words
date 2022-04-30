@@ -78,7 +78,7 @@ class Game():
             else:
                 return False
         else:
-            return False;
+            return False
 
     def prepNext(self, word : list[str]) -> None:
         """Removes used characters and replaces with random from letter pool
